@@ -56,7 +56,13 @@ $(()=>
         //generate random fruits
         chooseFruit();
         //randam position
-        $("#fruit").css({"left":Math.round(650 * Math.random()),"top":-50});
+        let containerWidth = $("#fruitcontainer").width();
+        let fruitWidth = $("#fruit").width();
+        let maxLeft = containerWidth - fruitWidth;
+            $("#fruit").css({
+                "left": Math.round(maxLeft * Math.random()),
+                "top": -50
+            });
         //generate step
         step=1 + Math.round( 5 * Math.random());
         //Move fruit down by steps every 10ms
@@ -67,10 +73,12 @@ $(()=>
             {
                 //to check we have life left
                 if(trialLeft > 1)
-                {
-                    $("#fruit").show();
+                {                    
                     chooseFruit();
-                    $("#fruit").css({"left":Math.round(650 * Math.random()),"top":-50});
+                    containerWidth = $("#fruitcontainer").width();
+                    fruitWidth = $("#fruit").width();
+                      maxLeft = containerWidth - fruitWidth;
+                    $("#fruit").css({"left":Math.round(maxLeft * Math.random()),"top":-50});
                     step=1 + Math.round( 5 * Math.random());
                     //reduce the life left
                     trialLeft--;
@@ -105,7 +113,7 @@ $(()=>
         $("#fruit").hide();
     }
     //slice the fruit
-    $("#fruit").mouseover(()=>
+    $("#fruit").on("mouseover touchstart",()=>
     {
         //increse the score by one
         score++;
