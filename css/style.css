@@ -94,10 +94,10 @@ body
 #gameover
 {
     height: 200px;
-    width: 60%;
+    width: 80%;
     background: linear-gradient(to right, #ba2dbd,#b0b488);
     text-align: center;
-    font-size: 30px;
+    font-size: 28px;
     padding-top: 40px;
     padding-right: 10px;
     text-transform: uppercase;   
